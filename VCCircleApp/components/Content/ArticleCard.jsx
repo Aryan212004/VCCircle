@@ -7,13 +7,14 @@ import {
   typography,
   borderRadius,
 } from '../../constants/theme';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from 'expo-router';
+// import { useNavigation } from '@react-navigation/native';
 
 const ArticleCard = ({ article }) => {
   const navigation = useNavigation();
 
   const handleCategoryPress = () => {
-    navigation.navigate('Industry', { category: article.category });
+    navigation.navigate('industry', { category: article.category });
   };
 
   return (

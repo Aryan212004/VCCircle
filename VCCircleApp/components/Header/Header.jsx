@@ -21,6 +21,12 @@ const Header = () => {
     setSelectedLocation(prev => (prev === 'IND' ? 'MEA' : 'IND'));
   };
 
+  return(
+    <View>
+      <Text>VCCircle</Text>
+    </View>
+  )
+
 };
 
 const styles = StyleSheet.create({

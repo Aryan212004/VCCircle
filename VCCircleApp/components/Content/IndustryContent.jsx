@@ -1,29 +1,28 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
-import AdSection from './AdSection';
-import { spacing } from '../../constants/theme';
-import Tab from '../ui/Tab';
-import IndustryNavigationBar from '../ui/NavigationBar';
-import ArticlePreview from './ArticlePreview';
-import { CategoryDescription } from '../../data/industryData';
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import AdSection from "./AdSection";
+import { spacing } from "../../constants/theme";
+import Tab from "../ui/Tab";
+import IndustryNavigationBar from "../ui/NavigationBar";
+import ArticlePreview from "./ArticlePreview";
+import { CategoryDescription } from "../../data/industryData";
 
 export default function IndustryContent({ category }) {
-
-  const values = ['ALL', 'PRO', 'PREMIUM'];
-  const [tabChange, setTabChange] = useState("ALL")
+  const values = ["ALL", "PRO", "PREMIUM"];
+  const [tabChange, setTabChange] = useState("ALL");
   const [selectedCategory, setSelectedCategory] = useState(
-    category || 'Healthcare',
+    category || "Healthcare"
   );
 
   const handleTabChange = (value, index) => {
-    console.log('Selected tab:', value, 'at index:', index);
+    console.log("Selected tab:", value, "at index:", index);
     setTabChange(value);
     // Handle tab change logic here if needed
   };
 
   const handleCategoryPress = (newCategory) => {
     setSelectedCategory(newCategory);
-    console.log('Selected category:', newCategory);
+    console.log("Selected category:", newCategory);
   };
 
   return (
@@ -33,14 +32,14 @@ export default function IndustryContent({ category }) {
       <Text style={styles.category}>{selectedCategory}</Text>
       <Text>
         {CategoryDescription[selectedCategory] ||
-          'Select a category to view details.'}
+          "Select a category to view details."}
       </Text>
-      <Tab onSelectionChange={handleTabChange} values={values}/>
+      <Tab onSelectionChange={handleTabChange} values={values} />
       <IndustryNavigationBar
         selectedCategory={selectedCategory}
         onCategoryPress={handleCategoryPress}
       />
-      <ArticlePreview category={selectedCategory} tab={tabChange}/>
+      <ArticlePreview category={selectedCategory} tab={tabChange} />
       <View style={styles.contentSection}></View>
     </ScrollView>
   );
@@ -53,19 +52,19 @@ const styles = StyleSheet.create({
   },
   heading: {
     fontSize: 22,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginVertical: spacing.sm,
   },
   category: {
     fontSize: 34,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
   contentSection: {
     marginTop: spacing.lg,
   },
   sectionTitle: {
     fontSize: 18,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: spacing.md,
   },
 });
